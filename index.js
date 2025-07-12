@@ -65,3 +65,5 @@ console.error('Gagal ambil data cuaca:', err);
 alert("Data cuaca gagal dimuat.");
 });
 }
+
+window.scroll(0,document.body.scrollHeight);

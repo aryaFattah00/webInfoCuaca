@@ -1,0 +1,466 @@
+
+
+.background{
+/* position: fixed; */
+width: 390px;
+height: 844px;
+
+background-image: url('foto/sore.jpeg');
+background-size: cover;
+background-position: center;
+z-index: -1;
+
+}
+.weather-card-sunset{
+position: fixed;
+width: 390px;
+height: 844px;
+left: 0px;
+top: 0px;
+}
+.kota{
+position: absolute;
+width: 208px;
+height: 38px;
+left: calc(50% - 208px/2);
+top: 47px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 38px;
+text-align: center;
+color: #FFFFFF;
+}
+.negara{
+    position: absolute;
+    width: 208px;
+    height: 38px;
+    left: calc(50% - 208px/2);
+    top: 75px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.awan{
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    left: 160px;
+    top: 120px;
+}
+.suhu{
+    position: absolute;
+    width: 102px;
+    height: 93px;
+    left: calc(50% - 102px/2);
+    top: calc(50% - 182px/2 - 202.5px);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 64px;
+    line-height: 96px;
+    text-align: center;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+.celcius{
+    position: absolute;
+    width: 23px;
+    height: 19px;
+    left: 226px;
+    top: 188px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.kondisi{
+    position: absolute;
+    width: 130px;
+    height: 23px;
+    left: 130px;
+    top: 244px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.jam{
+    position: absolute;
+    width: 130px;
+    height: 23px;
+    left: 130px;
+    top: 260px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.box-container{
+    position: absolute;
+    width: 334px;
+    height: 108px;
+    left: 28px;
+    top: 298px;
+
+    background: rgba(217, 217, 217, 0.3);
+    border-radius: 20px;
+}
+.box-container1{
+    position: absolute;
+    width: 164px;
+    height: 138px;
+    left: 199px;
+    top: 570px;
+    background: rgba(217, 217, 217, 0.3);
+    border-radius: 20px;
+}
+.box-container2{
+    position: absolute;
+    width: 164px;
+    height: 138px;
+    left: 29px;
+    top: 570px;
+    background: rgba(217, 217, 217, 0.3);
+    border-radius: 20px;
+}
+.box-container3{
+    position: absolute;
+    width: 334px;
+    height: 50px;
+    left: 29px;
+    top: 721px;
+    background: rgba(217, 217, 217, 0.3);
+    border-radius: 20px;
+}
+
+.judul{
+    position: absolute;
+    width: 95px;
+    height: 18px;
+    left: 148px;
+    top: 300px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.b{
+    /* Ramalan 3 hari */
+
+position: absolute;
+width: 99px;
+height: 18px;
+left: 57px;
+top: 310px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+.kalender{
+position: fixed;
+width: 15px;
+height: 15px;
+top: 320px;
+left: 40px;
+}
+.a{
+position: absolute;
+width: 99px;
+height: 18px;
+left: 32px;
+top: 30px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+.c{
+position: absolute;
+width: 108px;
+height: 18px;
+left: 218px;
+top: 30px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 18px;
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;
+}
+.awan1{
+position: fixed;
+width: 15px;
+height: 15px;
+left: 40px;
+top: 338px;
+}
+.awan2{
+position: fixed;
+width: 15px;
+height: 15px;
+left: 40px;
+top: 358px;
+}
+.awan3{
+position: fixed;
+width: 15px;
+height: 15px;
+left: 40px;
+top: 376px;
+}
+.a1{
+position: absolute;
+width: 99px;
+height: 18px;
+left: 29px;
+top: 48px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+.c1{
+    /* 29°/20° */
+position: absolute;
+width: 108px;
+height: 18px;
+left: 218px;
+top: 48px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 18px;
+text-align: center;
+color: #FFFFFF;
+
+}
+.a2{
+position: absolute;
+width: 87px;
+height: 18px;
+left: 32px;
+top: 67px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+
+.c2{
+position: absolute;
+width: 108px;
+height: 18px;
+left: 218px;
+top: 67px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 18px;
+text-align: center;
+color: #FFFFFF;
+}
+.background2{
+    /* Rectangle 2 */
+position: fixed;
+width: 334px;
+height: 141px;
+left: 29px;
+top: 416px;
+background: rgba(217, 217, 217, 0.3);
+border-radius: 20px;
+}
+.judul1,.judul2,.judul3,.judul4{
+position: absolute;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+.judul1{width: 95px;height: 18px;left: 148px;top: 418px;}
+.judul2{width: 104px;height: 18px;left: 30px;top: 0px;}
+.judul3{width: 55px;height: 19px;left: 64px;top: 728px;font-weight: 600;font-size: 14px;line-height: 21px;}
+.judul4{width: 55px;height: 19px;left: 90px;top: 728px;font-weight: 600;font-size: 14px;line-height: 21px;}
+
+.subjudul,.subjudul1,
+.subjudul2,.subjudul3{
+position: absolute;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 11px;
+line-height: 16px;
+text-align: center;
+color: #FFFFFF;
+}
+.subjudul{width: 99px;height: 18px;left: 60px;top: 433px;}
+.subjudul1{width: 104px;height: 18px;left: 0px;top: 24px;font-size: 11px;}
+.subjudul2{width: 104px;height: 18px;left: 0px;top: 55px;font-size: 11px;}
+.subjudul3{width: 203px;height: 19px;left: 127px;top: 715px;font-size: 12px;line-height: 18px;}
+
+.jam1{
+    /* image 4 */
+position: fixed;
+width: 15px;
+height: 15px;
+top: 442px;
+left: 40px;
+}
+.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,
+.p10,.p11,.p12,.p13,.p14,.p15,.p16,
+.p17,.p18,.p19{
+position: fixed;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 12px;
+line-height: 18px;
+text-align: center;
+color: #FFFFFF;
+}
+.p1{width: 108px;height: 18px;left: 30px;top: 452px;}
+.p2{width: 108px;height: 18px;left: 110px;top: 452px;}
+.p3{width: 108px;height: 18px;left: 190px;top: 452px;}
+.p4{width: 108px;height: 18px;left: 270px;top: 452px;}
+.p5{width: 104px;height: 18px;left: 232px;top: 567px;}
+.p6{width: 104px;height: 18px;left: 198px;top: 585px;}
+.p7{width: 104px;height: 18px;left: 288px;top: 587px;}
+.p8{width: 104px;height: 18px;left: 198px;top: 604px;}
+.p9{width: 104px;height: 18px;left: 288px;top: 605px;}
+.p10{width: 104px;height: 18px;left: 198px;top: 623px;}
+.p11{width: 104px;height: 18px;left: 288px;top: 624px;}
+.p12{width: 104px;height: 18px;left: 198px;top: 641px;}
+.p13{width: 64px;height: 18px;left: 295px;top: 643px;}
+.p14{width: 21px;height: 11px;left: 340px;top: 650px;font-size: 7px;}
+.p15{width: 104px;height: 18px;left: 198px;top: 661px;}
+.p16{width: 64px;height: 18px;left: 308px;top: 663px;}
+.p17{width: 104px;height: 18px;left: 29px;top: 605px;font-size: 10px;font-weight: 400;}
+.p18{width: 46px;height: 6px;left: 59px;top: 639px;font-weight: 400;font-size: 10px;}
+.p19{width: 103px;height: 14px;left: 108px;top: 782px;font-weight: 400;font-size: 7px;line-height: 10px;}
+
+.cloud{
+    /* berawan */
+position: absolute;
+width: 25px;
+height: 25px;
+left: 69px;
+top: 506px;
+}
+.cloud1{
+position: absolute;
+width: 25px;
+height: 25px;
+left: 149px;
+top: 506px;
+}
+.cloud2{
+position: absolute;
+width: 25px;
+height: 25px;
+left: 229px;
+top: 506px;
+}
+.cloud3{
+position: absolute;
+width: 25px;
+height: 25px;
+left: 309px;
+top: 506px;
+}
+
+.arah,.arah1,.arah2,.arah3{
+/* 13,0Km/j */
+position: absolute;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 15px;
+text-align: center;
+color: #FFFFFF;
+}
+.arah{width: 46px;height: 8px;left: 60px;top: 517px;}
+.arah1{width: 46px;height: 8px;left: 140px;top: 517px;}
+.arah2{width: 46px;height: 8px;left: 220px;top: 517px;}
+.arah3{width: 46px;height: 8px;left: 300px;top: 517px;}
+
+.masa,.masa1,.masa2,.masa3{
+position: absolute;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 10px;
+line-height: 15px;
+text-align: center;
+color: #FFFFFF;
+}
+.masa{width: 54px;height: 8px;left: 57px;top: 529px;}
+.masa1{width: 54px;height: 8px;left: 137px;top: 530px;}
+.masa2{width: 54px;height: 8px;left: 217px;top: 530px;}
+.masa3{width: 54px;height: 8px;left: 297px;top: 530px;}
+
+.daun{position: absolute;width: 20px;height: 20px;left: 45px;top: 737px;}
+.link{
+position: fixed;
+width: 103px;
+height: 14px;
+left: 179px;
+top: 789px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 700;
+font-size: 8px;
+line-height: 12px;
+text-align: center;
+color: #FFFFFF;
+text-decoration: none;
+
+}
