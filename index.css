@@ -21,6 +21,7 @@ body, html {
   overflow-x: hidden; 
   height: 100vh;
   width: 100vw;
+  /* background-color: black; */
 }
 
 .background {
@@ -194,13 +195,13 @@ top: -105px;
 }
 .judul1{position: relative;width: 95px;height: 18px;left: 138px;top: -146px;}
 .judul2{width: 104px;height: 18px;left: -153px;top: 0px;}
-.judul3{width: 55px;height: 19px;left: 53px;top: -206px;font-weight: 600;font-size: 14px;line-height: 21px;}
-.judul4{width: 55px;height: 19px;left: 77px;top: -285px;font-weight: 600;font-size: 14px;line-height: 21px;}
+.judul3{width: 55px;height: 19px;left: 24px;top: 2px;font-weight: 600;font-size: 14px;line-height: 21px;}
+.judul4{width: 55px;height: 19px;left: 50px;top: -39px;font-weight: 600;font-size: 14px;line-height: 21px;}
 
 .subjudul{width: 99px;height: 18px;left: 59px;top: -141px;}
 .subjudul1{width: 104px;height: 18px;left: -190px;top: 4px;font-size: 11px;}
 .subjudul2{width: 104px;height: 18px;left: -191px;top: 0px;font-size: 11px;}
-.subjudul3{width: 203px;height: 19px;left: 111px;top: -335px;font-size: 12px;line-height: 18px;}
+.subjudul3{width: 203px;height: 19px;left: 81px;top: -68px;font-size: 12px;line-height: 18px;}
 
 .jam1{
 position: relative;
@@ -346,7 +347,7 @@ color: #FFFFFF;
 .p16{width: 64px;height: 18px;left: 267px;top: -84px;}
 .p17{width: 104px;height: 18px;left: -188px;top: 0px;font-size: 10px;font-weight: 400;}
 .p18{width: 46px;height: 6px;left: -160px;top: 0px;font-weight: 400;font-size: 10px;}
-.p19{width: 103px;height: 14px; left: 99px;top: -300px;font-weight: 400;font-size: 7px;line-height: 10px;}
+.p19{width: 103px;height: 14px; left: 102px;top: -149px;font-weight: 400;font-size: 7px;line-height: 10px;}
 
 .box-container, .background2 {
   margin-bottom: 10px;
@@ -423,7 +424,7 @@ color: #FFFFFF;
 
 .daun {
   position: relative;
-  width: 20px;height: 20px;left: 40px;top: -246px;
+  width: 20px;height: 20px;left: 10px;top: -19px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -431,8 +432,8 @@ color: #FFFFFF;
 position: relative;
 width: 103px;
 height: 14px;
-left: 169px;
-top: -344px;
+left: 171px;
+top: -190px;
 
 font-family: 'Poppins';
 font-style: normal;
