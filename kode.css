@@ -3,7 +3,6 @@
 max-width: 390px;
 margin: 0 auto;
 position: relative;
-z-index: 0;
 }
 
 * {
@@ -20,23 +19,22 @@ body, html {
   padding: 0;
   min-height: 100vh;
   overflow-x: hidden; 
-  width: 100%;
-  /* background-color: black; */
+  height: 100vh;
+  width: 100vw;
+  background-color: black;
 }
 
 .background {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
+position: absolute;
+width: 100%;
+height: 154%;
+/* background-image: url('foto/sore.jpeg'); */
 
-background-image: url('foto/sore.jpeg');
 background-size: cover;
 background-position: center;
 z-index: -1;
-
+top: 0;
+left: 0;
 }
 
 .weather-card-sunset {
@@ -49,7 +47,6 @@ flex-direction: column;
 gap: 20px;
 color: white;
 position: relative;
-min-height: 100vh;
 }
 
 .kota, .negara {
@@ -160,20 +157,21 @@ background: rgba(217, 217, 217, 0.3);
 border-radius: 20px;
 }
 .box-container3{
-position: absolute;
+position: relative;
 width: 334px;
 height: 50px;
-left: 28px;
-top: 843px;
+left: 19px;
+top: -151px;
+
 background: rgba(217, 217, 217, 0.3);
 border-radius: 20px;
 }
 .background2{
-position: absolute;
+position: relative;
 width: 334px;
 height: 161px;
-left: 28px;
-top: 500px;
+left: 18px;
+top: 14px;
 background: rgba(217, 217, 217, 0.3);
 border-radius: 20px;
 }
@@ -189,18 +187,18 @@ text-align: center;
 color: #FFFFFF;
 }
 .judul{
-position: absolute;
+position: relative;
 width: 95px;
 height: 18px;
-left: 147px;
-top: 514px;
+left: 138px;
+top: -105px;
 }
-.judul1{position: relative;width: 95px;height: 18px;left: 119px;top: -154px;}
+.judul1{position: relative;width: 95px;height: 18px;left: 138px;top: -146px;}
 .judul2{width: 104px;height: 18px;left: -153px;top: 0px;}
 .judul3{width: 55px;height: 19px;left: 24px;top: 2px;font-weight: 600;font-size: 14px;line-height: 21px;}
 .judul4{width: 55px;height: 19px;left: 50px;top: -39px;font-weight: 600;font-size: 14px;line-height: 21px;}
 
-.subjudul{width: 99px;height: 18px;left: 41px;top: -141px;}
+.subjudul{width: 99px;height: 18px;left: 59px;top: -141px;}
 .subjudul1{width: 104px;height: 18px;left: -190px;top: 4px;font-size: 11px;}
 .subjudul2{width: 104px;height: 18px;left: -191px;top: 0px;font-size: 11px;}
 .subjudul3{width: 203px;height: 19px;left: 81px;top: -68px;font-size: 12px;line-height: 18px;}
@@ -210,22 +208,22 @@ position: relative;
 width: 15px;
 height: 15px;
 top: -162px;
-left: 20px;
+left: 39px;
 }
 
 .kalender{
-position: absolute;
+position: relative;
 width: 15px;
 height: 15px;
-top: 202px;
+top: 32px;
 left: 20px;
 }
 .b{
-position: absolute;
+position: relative;
 width: 99px;
 height: 18px;
-left: 64px;
-top: 537px;
+left: 56px;
+top: -96px;
     
 font-family: 'Poppins';
 font-style: normal;
@@ -249,19 +247,19 @@ color: #FFFFFF;
 width: 99px;
 height: 18px;
 left: 41px;
-top: 62px;
+top: 40px;
 }
 .a1{
 width: 99px;
 height: 18px;
 left: 38px;
-top: 27px;
+top: 5px;
 }
 .a2{
 width: 87px;
 height: 18px;
 left: 40px;
-top: -10px;
+top: -32px;
 }
 
 .awan1{
@@ -269,21 +267,21 @@ position: relative;
 width: 15px;
 height: 15px;
 left: 20px;
-top: 41px;
+top: 18px;
 }
 .awan2{
 position: relative;
 width: 15px;
 height: 15px;
 left: 20px;
-top: 7px;
+top: -18px;
 }
 .awan3{
 position: relative;
 width: 15px;
 height: 15px;
 left: 20px;
-top: -30px;
+top: -55px;
 
 }
 .c,.c1,.c2{
@@ -300,19 +298,19 @@ color: #FFFFFF;
 width: 108px;
 height: 18px;
 left: 227px;
-top: 20px;
+top: -2px;
 }
 .c1{
 width: 108px;
 height: 18px;
 left: 227px;
-top: -16px;
+top: -37px;
 }
 .c2{
 width: 108px;
 height: 18px;
 left: 227px;
-top: -52px;
+top: -74px;
 }
 
 p,.p1,.p2,.p3,.p4,.p5,.p6,.p7,.p8,.p9,
@@ -330,10 +328,10 @@ color: #FFFFFF;
   color: white;
 }
 
-.p1{width: 108px;height: 18px;left: 1px;top: -2px;}
-.p2{width: 108px;height: 18px;left: 77px;top: -67px;}
-.p3{width: 108px;height: 18px;left: 152px;top: -132px;}
-.p4{width: 108px;height: 18px;left: 229px;top: -197px;}
+.p1{width: 108px;height: 18px;left: 15px;top: -166px;}
+.p2{width: 108px;height: 18px;left: 93px;top: -231px;}
+.p3{width: 108px;height: 18px;left: 171px;top: -296px;}
+.p4{width: 108px;height: 18px;left: 250px;top: -361px;}
 
 .p5{width: 104px;height: 18px;left: 191px;}
 .p6{width: 104px;height: 18px;left: 156px;top: 13px;}
@@ -349,7 +347,7 @@ color: #FFFFFF;
 .p16{width: 64px;height: 18px;left: 267px;top: -84px;}
 .p17{width: 104px;height: 18px;left: -188px;top: 0px;font-size: 10px;font-weight: 400;}
 .p18{width: 46px;height: 6px;left: -160px;top: 0px;font-weight: 400;font-size: 10px;}
-.p19{width: 103px;height: 14px;left: 98px;top: 452px;font-weight: 400;font-size: 7px;line-height: 10px;}
+.p19{width: 103px;height: 14px; left: 102px;top: -149px;font-weight: 400;font-size: 7px;line-height: 10px;}
 
 .box-container, .background2 {
   margin-bottom: 10px;
@@ -359,30 +357,30 @@ color: #FFFFFF;
 position: relative;
 width: 25px;
 height: 25px;
-    left: 42px;
-    top: 28px;
+    left: 55px;
+    top: -134px;
 }
 
 .cloud1{
 position: relative;
 width: 25px;
 height: 25px;
-left: 118px;
-top: -37px;
+left: 134px;
+top: -199px;
 }
 .cloud2{
 position: relative;
 width: 25px;
 height: 25px;
-left: 192px;
-top: -102px;
+left: 212px;
+top: -264px;
 }
 .cloud3{
 position: relative;
 width: 25px;
 height: 25px;
-left: 269px;
-top: -167px;
+left: 291px;
+top: -329px;
 }
 
 .arah,.arah1,.arah2,.arah3{
@@ -395,10 +393,10 @@ line-height: 15px;
 text-align: center;
 color: #FFFFFF;
 }
-.arah{width: 46px;height: 8px;left: 34px;top: 18px;}
-.arah1{width: 46px;height: 8px;left: 109px;top: -46px;}
-.arah2{width: 46px;height: 8px;left: 184px;top: -111px;}
-.arah3{width: 46px;height: 8px;left: 261px;top: -176px;}
+.arah{width: 46px;height: 8px;left: 45px;top: -140px;}
+.arah1{width: 46px;height: 8px;left: 125px;top: -205px;}
+.arah2{width: 46px;height: 8px;left: 205px;top: -270px;}
+.arah3{width: 46px;height: 8px;left: 281px;top: -335px;}
 
 .masa,.masa1,.masa2,.masa3{
 position: relative;
@@ -410,10 +408,10 @@ line-height: 15px;
 text-align: center;
 color: #FFFFFF;
 }
-.masa{width: 54px;height: 8px;left: 30px;top: 22px;}
-.masa1{width: 54px;height: 8px;left: 104px;top: -42px;}
-.masa2{width: 54px;height: 8px;left: 179px;top: -107px;}
-.masa3{width: 54px;height: 8px;left: 255px;top: -173px;}
+.masa{width: 54px;height: 8px;left: 41px;top: -133px;}
+.masa1{width: 54px;height: 8px;left: 120px;top: -197px;}
+.masa2{width: 54px;height: 8px;left: 200px;top: -262px;}
+.masa3{width: 54px;height: 8px;left: 277px;top: -327px;}
 
 .link {
   font-size: 10px;
@@ -434,8 +432,8 @@ color: #FFFFFF;
 position: relative;
 width: 103px;
 height: 14px;
-left: 169px;
-top: 407px;
+left: 171px;
+top: -190px;
 
 font-family: 'Poppins';
 font-style: normal;
