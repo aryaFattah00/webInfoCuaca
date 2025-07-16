@@ -108,8 +108,8 @@ function gantiBackgroundBerdasarkanJam() {
 }
 
 function showError(error) {
-  alert("Gagal mendapatkan lokasi. Aktifkan izin lokasi di browser Anda.");
-  console.warn("Geolocation error:", error);
+  alert("Gagal mendapatkan lokasi. Aktifkan izin lokasi di browser Anda.", error.message);
+  console.warn("Geolocation error:"+ error.message);
 }
 
 
@@ -258,6 +258,7 @@ fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lo
     // Jalankan saat halaman dimuat
     gantiBackgroundBerdasarkanJam();
     if (navigator.geolocation) {
+      console.log("Cek geolocation support:", "geolocation" in navigator);
       navigator.geolocation.getCurrentPosition(showWeather, showError);
     } else {
       alert("Browser tidak mendukung Geolocation.");
