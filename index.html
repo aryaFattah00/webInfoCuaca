@@ -255,14 +255,30 @@ fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lo
       console.warn("Gagal mengambil data ramalan 24 jam");
     });
 }
-    // Jalankan saat halaman dimuat
-    gantiBackgroundBerdasarkanJam();
-    if (navigator.geolocation) {
-      console.log("Cek geolocation support:", "geolocation" in navigator);
+// Jalankan saat halaman dimuat
+gantiBackgroundBerdasarkanJam();
+
+if ("geolocation" in navigator) {
+  if ("permissions" in navigator) {
+    navigator.permissions.query({ name: 'geolocation' }).then(result => {
+      console.log("Status izin lokasi:", result.state);
+
+      if (result.state === 'granted' || result.state === 'prompt') {
+        navigator.geolocation.getCurrentPosition(showWeather, showError);
+      } else if (result.state === 'denied') {
+        alert("Izin lokasi ditolak. Silakan aktifkan izin lokasi untuk situs ini di pengaturan browser Anda.");
+      }
+    }).catch(() => {
+      // Jika tidak bisa query permission, tetap coba ambil lokasi
       navigator.geolocation.getCurrentPosition(showWeather, showError);
-    } else {
-      alert("Browser tidak mendukung Geolocation.");
-    }
+    });
+  } else {
+    // Browser tidak support permissions API
+    navigator.geolocation.getCurrentPosition(showWeather, showError);
+  }
+} else {
+  alert("Browser tidak mendukung Geolocation.");
+}
   </script>
 </body>
 </html>
