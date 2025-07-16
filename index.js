@@ -67,3 +67,5 @@ alert("Data cuaca gagal dimuat.");
 }
 
 window.scroll(0,document.body.scrollHeight);
+
+

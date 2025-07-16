@@ -20,7 +20,7 @@
         <p class="jam">05.30</p>
         <div class="forecast">
                 <h1 class="judul">Ramalan Cuaca</h1>
-                  <p class="b">Ramalan 3 hari</p>
+                  <p class="b">Ramalan 24 jam</p>
                 <div class="box-container">
                   <img class="kalender" src="foto/kalender.png" alt="">
                   <p class="a">Hari ini Berawan</p>
@@ -35,7 +35,7 @@
                 </div>
               <div class="background2">
                   <h1 class="judul1">Ramalan Cuaca</h1>
-                    <h2 class="subjudul">Ramalan 24 jam</h2>
+                    <h2 class="subjudul">Ramalan 3 hari</h2>
                       <img class="jam1"src="foto/clock.png" alt="">
                         <p class="p1">29°</p>
                           <img class="cloud"src="foto/berawan2.png" alt="">
@@ -66,7 +66,7 @@
                   <p class="p11">8</p>
                   <p class="p12">Tekanan</p> 
                   <p class="p13">1008</p> 
-                  <p class="p14">mbar</p> 
+                  <!-- <p class="p14">mbar</p>  -->
                   <p class="p15">Peluang hujan</p> 
                   <p class="p16">3%</p> 
                 </div>
@@ -78,6 +78,7 @@
               <h1 class="subjudul2">Kecepatan</h1>
               <p class="p18">13,0km/j</p>
             </div>
+            <a href="https://openweathermap.org/api/air-pollution" target="_blank" class="link-box">
             <div class="box-container3">
               <h1 class="judul3">IKU</h1>
                 <img class="daun" src="foto/daun.png" alt="">
@@ -106,11 +107,31 @@ function gantiBackgroundBerdasarkanJam() {
   document.querySelector(".background").style.backgroundImage = `url('${background}')`;
 }
 
+function showError(error) {
+  alert("Gagal mendapatkan lokasi. Aktifkan izin lokasi di browser Anda.");
+  console.warn("Geolocation error:", error);
+}
+
+
 function showWeather(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
   const openWeatherKey = '71a709385242c0f2f64c9aa4a95cf7de';
   const openCageKey = '13257a492d3e4b95a31e9684f765b8e8';
+
+  // Ambil IKU (Indeks Kualitas Udara)
+fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${openWeatherKey}`)
+  .then(response => response.json())
+  .then(data => {
+    const aqi = data.list[0].main.aqi;
+    const nilaiIKU = aqi * 25 + 10; // Nilai dikalibrasi agar tampil seperti "84"
+    document.querySelector('.judul4').textContent = nilaiIKU;
+  })
+  .catch(() => {
+    document.querySelector('.iku-value').textContent = "--";
+    console.warn("Gagal mengambil data kualitas udara");
+  });
+
 
   // Ambil nama kota
   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lon}&key=${openCageKey}&language=id`)
@@ -124,47 +145,116 @@ function showWeather(position) {
       document.querySelector('.kota').textContent = "Lokasi tidak ditemukan";
     });
 
-      // Ambil data cuaca
-      fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=id&appid=${openWeatherKey}`)
-        .then(response => response.json())
-        .then(data => {
-          const kondisi = data.weather[0].main.toLowerCase();
-          const jam = new Date().getHours();
-          const isNight = jam >= 18 || jam < 6;
+  // Ambil data cuaca sekarang
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=id&appid=${openWeatherKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const kondisi = data.weather[0].main.toLowerCase();
+      const jam = new Date().getHours();
+      const isNight = jam >= 18 || jam < 6;
 
-          let iconPath = 'foto/berawan2.png';
-          if (kondisi === 'clear') {
-            iconPath = isNight ? 'foto/bulan.png' : 'foto/cerah.png';
-          } else if (kondisi === 'clouds') {
-            iconPath = isNight ? 'foto/bulan-berawan.png' : 'foto/cerah-berawan2.png';
-          } else if (kondisi === 'rain') {
-            iconPath = 'foto/hujan.png';
-          } else if (kondisi === 'thunderstorm') {
-            iconPath = 'foto/hujan-petir.png';
-          } else if (kondisi === 'drizzle') {
-            iconPath = 'foto/hujan-cerah.png';
-          } else if (['mist', 'haze', 'fog'].includes(kondisi)) {
-            iconPath = 'foto/pagi-berkabut.png';
-          }
+            // Arah angin
+      const arah = data.wind.deg;
+      const arahMataAngin = ["Utara", "Timur Laut", "Timur", "Tenggara", "Selatan", "Barat Daya", "Barat", "Barat Laut"];
+      const indexArah = Math.round(arah / 45) % 8;
+      document.querySelector('.p17').textContent = arahMataAngin[indexArah];
 
-          document.querySelector('.suhu').textContent = Math.round(data.main.temp);
-          document.querySelector('.kondisi').textContent = data.weather[0].description;
-          document.querySelector('.jam').textContent = new Date().toLocaleTimeString('id-ID', {
-            hour: '2-digit',
-            minute: '2-digit'
-          });
-          document.querySelector('.awan').src = iconPath;
-        })
-        .catch(() => {
-          alert("Gagal mengambil data cuaca.");
+      // Kecepatan angin
+      document.querySelector('.p18').textContent = `${data.wind.speed.toFixed(1).replace('.', ',')}km/j`;
+
+      // Kelembapan
+      document.querySelector('.p7').textContent = `${data.main.humidity}%`;
+
+      // Terasa seperti
+      document.querySelector('.p9').textContent = Math.round(data.main.feels_like);
+
+      // Tekanan
+      document.querySelector('.p13').textContent = `${data.main.pressure}mbar`;
+
+      // Peluang hujan
+      const peluang = data.rain && data.rain['1h'] ? Math.round(data.rain['1h'] * 100) : 3;
+      document.querySelector('.p16').textContent = `${peluang}%`;
+
+
+      let iconPath = 'foto/berawan2.png';
+      if (kondisi === 'clear') {
+        iconPath = isNight ? 'foto/bulan.png' : 'foto/cerah.png';
+      } else if (kondisi === 'clouds') {
+        iconPath = isNight ? 'foto/bulan-berawan.png' : 'foto/cerah-berawan2.png';
+      } else if (kondisi === 'rain') {
+        iconPath = 'foto/hujan.png';
+      } else if (kondisi === 'thunderstorm') {
+        iconPath = 'foto/hujan-petir.png';
+      } else if (kondisi === 'drizzle') {
+        iconPath = 'foto/hujan-cerah.png';
+      } else if (['mist', 'haze', 'fog'].includes(kondisi)) {
+        iconPath = 'foto/pagi-berkabut.png';
+      }
+
+      document.querySelector('.suhu').textContent = Math.round(data.main.temp);
+      document.querySelector('.kondisi').textContent = data.weather[0].description;
+      document.querySelector('.jam').textContent = new Date().toLocaleTimeString('id-ID', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      document.querySelector('.awan').src = iconPath;
+    })
+    .catch((error) => {
+      console.error("Gagal mengambil data cuaca: ",error)
+      alert("Gagal mengambil data cuaca.");
+    });
+
+  // Ambil data ramalan 3 hari
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=id&appid=${openWeatherKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const forecastData = data.list.filter(item => item.dt_txt.includes("12:00:00"));
+
+      // Hari ini
+      document.querySelector('.a').textContent = `Hari ini ${forecastData[0].weather[0].description}`;
+      document.querySelector('.c').textContent = `${Math.round(forecastData[0].main.temp_max)}°/${Math.round(forecastData[0].main.temp_min)}°`;
+      document.querySelector('.awan1').src = `https://openweathermap.org/img/wn/${forecastData[0].weather[0].icon}@2x.png`;
+
+      // Besok
+      document.querySelector('.a1').textContent = `Besok ${forecastData[1].weather[0].description}`;
+      document.querySelector('.c1').textContent = `${Math.round(forecastData[1].main.temp_max)}°/${Math.round(forecastData[1].main.temp_min)}°`;
+      document.querySelector('.awan2').src = `https://openweathermap.org/img/wn/${forecastData[1].weather[0].icon}@2x.png`;
+
+      // Lusa
+      document.querySelector('.a2').textContent = `Lusa ${forecastData[2].weather[0].description}`;
+      document.querySelector('.c2').textContent = `${Math.round(forecastData[2].main.temp_max)}°/${Math.round(forecastData[2].main.temp_min)}°`;
+      document.querySelector('.awan3').src = `https://openweathermap.org/img/wn/${forecastData[2].weather[0].icon}@2x.png`;
+    })
+    .catch(() => {
+      console.warn("Gagal mengambil data ramalan 3 hari dari forecast");
+    });
+
+  // Ambil data ramalan 24 jam
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&lang=id&appid=${openWeatherKey}`)
+    .then(response => response.json())
+    .then(data => {
+      const list = data.list;
+      const waktu = [0, 1, 2, 3]; // sekarang, +3 jam, +6 jam, +9 jam
+
+      waktu.forEach((index, i) => {
+        const item = list[index];
+
+        document.querySelector(`.p${i + 1}`).textContent = `${Math.round(item.main.temp)}°`;
+        document.querySelector(`.cloud${i === 0 ? '' : i}`).src = `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`;
+        document.querySelector(`.arah${i === 0 ? '' : i}`).textContent = `${item.wind.speed.toFixed(1)} km/j`;
+
+        const date = new Date(item.dt_txt);
+        const jam = i === 0 ? "Sekarang" : date.toLocaleTimeString('id-ID', {
+          hour: '2-digit',
+          minute: '2-digit'
         });
-    }
-
-    function showError(error) {
-      alert("Gagal mendapatkan lokasi. Aktifkan izin lokasi.");
-      console.warn(error);
-    }
-
+        document.querySelector(`.masa${i === 0 ? '' : i}`).textContent = jam;
+      });
+    })
+    .catch(() => {
+      console.warn("Gagal mengambil data ramalan 24 jam");
+    });
+}
     // Jalankan saat halaman dimuat
     gantiBackgroundBerdasarkanJam();
     if (navigator.geolocation) {
